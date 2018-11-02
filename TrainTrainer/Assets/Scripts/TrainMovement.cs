@@ -19,6 +19,7 @@ public class TrainMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.position = Vector3.MoveTowards(this.transform.position, nodes[nodeIndex].transform.position, Time.deltaTime * speed);
+        this.transform.LookAt(nodes[nodeIndex].transform);
         Debug.Log("Current Node Index: " + nodeIndex);
     }
 
