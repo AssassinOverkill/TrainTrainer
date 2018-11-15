@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TrainMovement : MonoBehaviour {
     #region variables
+    public Transform trackPoint1, trackPoint2;
     public List<GameObject> nodes = new List<GameObject>(); //  path A will be even numbers, path B will be odd numbers (excluding 1)
     public float speed;
     public bool travelPathA = false;    //  true means the train will go down path A. false, path B
-    private int nodeIndex = 0;  //  index of the next node the train will travel towards
 
+    private int nodeIndex = 0;  //  index of the next node the train will travel towards
     #endregion
 
     // Use this for initialization
@@ -21,6 +22,19 @@ public class TrainMovement : MonoBehaviour {
         this.transform.position = Vector3.MoveTowards(this.transform.position, nodes[nodeIndex].transform.position, Time.deltaTime * speed);
         this.transform.LookAt(nodes[nodeIndex].transform);
         Debug.Log("Current Node Index: " + nodeIndex);
+
+        if(Input.GetKeyDown(KeyCode.E) && nodeIndex == 0)
+        {
+            Debug.Log("Track switched!");
+            if (travelPathA)
+            {
+                travelPathA = false;
+            }
+            else
+            {
+                travelPathA = true;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
