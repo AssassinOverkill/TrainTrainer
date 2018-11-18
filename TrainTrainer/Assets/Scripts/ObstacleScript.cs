@@ -15,7 +15,9 @@ public class ObstacleScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        obstacleClone = Instantiate(obstacles[0], this.transform.Find("Train").GetComponent<TrainMovement>().obstacleSpawn[0]);
+        int num = Random.Range(0, this.transform.Find("Train").GetComponent<TrainMovement>().obstacleSpawn.Length);
+        Debug.Log("Index: " + num);
+        obstacleClone = Instantiate(obstacles[0], this.transform.Find("Train").GetComponent<TrainMovement>().obstacleSpawn[num]);
 	}
 	
 	// Update is called once per frame
