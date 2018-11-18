@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Train Path Node
+  - Obstacle
   layers:
   - Default
   - TransparentFX
