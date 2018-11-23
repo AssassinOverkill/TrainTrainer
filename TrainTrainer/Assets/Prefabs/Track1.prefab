@@ -197,6 +197,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1340448406656278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4474522813488262}
+  m_Layer: 0
+  m_Name: CameraSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1386004322191686
 GameObject:
   m_ObjectHideFlags: 1
@@ -610,6 +625,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1971635864501400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4552757198026134}
+  m_Layer: 0
+  m_Name: TrainStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!4 &4008296916960222
 Transform:
   m_ObjectHideFlags: 1
@@ -721,7 +751,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451592996201476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1571.7908, y: 1158.5872, z: 271.22516}
+  m_LocalPosition: {x: 1571.7908, y: 1157.1, z: 271.22516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4312455751528886}
@@ -802,11 +832,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635095983343330}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1360, y: 1160.7087, z: 262.3}
+  m_LocalPosition: {x: 1360, y: 1159.2216, z: 262.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4594232357676144}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4411693117411746
 Transform:
@@ -841,6 +871,19 @@ Transform:
   m_Father: {fileID: 4594232357676144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4474522813488262
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340448406656278}
+  m_LocalRotation: {x: 0.14020325, y: -0.690597, z: 0.14544919, w: 0.69445187}
+  m_LocalPosition: {x: 1910.2034, y: 1320.0088, z: 255.56876}
+  m_LocalScale: {x: 0.70111036, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4594232357676144}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4494541756616894
 Transform:
   m_ObjectHideFlags: 1
@@ -853,6 +896,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4558694051601742}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4552757198026134
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971635864501400}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1360, y: 1159.2216, z: 262.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4594232357676144}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4558479772937668
 Transform:
@@ -933,14 +989,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1244285520319364}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1600.6033, y: -1158.1088, z: -262.16876}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1587.5535, y: -1333.1088, z: -229.83377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4416717846838834}
   - {fileID: 4273731877669668}
+  - {fileID: 4552757198026134}
   - {fileID: 4410648398112152}
   - {fileID: 4687631087651694}
+  - {fileID: 4474522813488262}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -987,7 +1045,7 @@ Transform:
   - {fileID: 4373986779261936}
   - {fileID: 4589000504874418}
   m_Father: {fileID: 4594232357676144}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4696114809022488
 Transform:
@@ -2249,6 +2307,7 @@ MonoBehaviour:
   pathB: {fileID: 1038989262709158}
   redMat: {fileID: 2100000, guid: e12272f10d0c4514fa3de8072c9532fd, type: 2}
   untravelledMat: {fileID: 2100000, guid: fa86af9b1ab683941b917fc3d681164d, type: 2}
+  timeTillTrainMoves: 10
 --- !u!114 &114794550510813008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2263,6 +2322,7 @@ MonoBehaviour:
   obstacleSpawn:
   - {fileID: 4373986779261936}
   - {fileID: 4589000504874418}
+  trainStart: {fileID: 4552757198026134}
   nodes:
   - {fileID: 1403378018157062}
   - {fileID: 1657615034383404}

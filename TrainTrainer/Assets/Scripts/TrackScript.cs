@@ -5,28 +5,43 @@ using UnityEngine;
 public class TrackScript : MonoBehaviour {
     #region variables
     public int trackID; //  set in editor
-    public bool viewing = false;    //  is the player viewing this currently?
     public GameObject pathA, pathB;
     public Material redMat, untravelledMat; //  redMat = path currently being taken by the train
+    public float timeTillTrainMoves = 10.0f;
     #endregion
 
-	// Update is called once per frame
-	void Update () {
-        if (GetComponentInChildren<TrainMovement>().travelPathA)
+    private void Start()
+    {
+        genRandomTime();
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (timeTillTrainMoves <= 0)
         {
-            for(int i = 0; i < 3; i++)  //  3 because there's only 3 track components
+            if (GetComponentInChildren<TrainMovement>().travelPathA)
             {
-                pathA.transform.GetChild(i).GetComponent<MeshRenderer>().material = redMat;
-                pathB.transform.GetChild(i).GetComponent<MeshRenderer>().material = untravelledMat;
+                for (int i = 0; i < 3; i++)  //  3 because there's only 3 track components
+                {
+                    pathA.transform.GetChild(i).GetComponent<MeshRenderer>().material = redMat;
+                    pathB.transform.GetChild(i).GetComponent<MeshRenderer>().material = untravelledMat;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)  //  3 because there's only 3 track components
+                {
+                    pathB.transform.GetChild(i).GetComponent<MeshRenderer>().material = redMat;
+                    pathA.transform.GetChild(i).GetComponent<MeshRenderer>().material = untravelledMat;
+                }
             }
         }
         else
         {
-            for (int i = 0; i < 3; i++)  //  3 because there's only 3 track components
-            {
-                pathB.transform.GetChild(i).GetComponent<MeshRenderer>().material = redMat;
-                pathA.transform.GetChild(i).GetComponent<MeshRenderer>().material = untravelledMat;
-            }
+            timeTillTrainMoves -= Time.deltaTime;
+            Debug.Log("Train comes in: " + timeTillTrainMoves);
         }
 	}
+
+    public void genRandomTime() { timeTillTrainMoves = Random.Range(5f, 30f); }
 }
