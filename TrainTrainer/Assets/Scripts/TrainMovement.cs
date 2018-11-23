@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrainMovement : MonoBehaviour {
     #region variables
@@ -13,10 +14,16 @@ public class TrainMovement : MonoBehaviour {
     private int nodeIndex = 0;  //  index of the next node the train will travel towards
     #endregion
 
-    // Use this for initialization
-    void Start () {
-		
-	}
+    public void resetGame()
+    {
+        Debug.Log("Train reached end of the node path!");
+        this.transform.position = trainStart.position;
+        this.transform.rotation = trainStart.rotation;
+        nodeIndex = 0;  //  first node
+        GetComponentInParent<TrackScript>().genRandomTime();    //  reset time
+        Destroy(GetComponentInParent<ObstacleScript>().obstacleClone);  //  get rid of old obstacle
+        GetComponentInParent<ObstacleScript>().genObstacle();   //  generate new one
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +47,7 @@ public class TrainMovement : MonoBehaviour {
                 }
             }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +63,7 @@ public class TrainMovement : MonoBehaviour {
                 GetComponentInParent<TrackScript>().genRandomTime();    //  reset time
                 Destroy(GetComponentInParent<ObstacleScript>().obstacleClone);  //  get rid of old obstacle
                 GetComponentInParent<ObstacleScript>().genObstacle();   //  generate new one
+                UIScript.numberOfSafeTrains++;   //  increase score
             }
             else
             {

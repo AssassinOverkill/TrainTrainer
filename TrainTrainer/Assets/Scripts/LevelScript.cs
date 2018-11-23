@@ -5,10 +5,9 @@ using UnityEngine;
 public class LevelScript : MonoBehaviour {
     #region variables
     public Camera cam;
+    public GameObject[] tracks = new GameObject[6];
     public List<GameObject> cameraSpawns = new List<GameObject>();
     public static int index = 0;
-
-    private int numberOfSafeTrains = 0; //  how many trains safely made it by
     #endregion
 
     // Use this for initialization
@@ -23,6 +22,14 @@ public class LevelScript : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             if (index > 0) { index--; }
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && UIScript.gameOver) {
+            for (int i=0;i<6;i++) {
+                tracks[i].GetComponentInChildren<TrainMovement>().resetGame();
+                UIScript.numberOfSafeTrains = 0;
+                UIScript.gameOver = false;
+                UIScript.centerScreenActive = false;
+            }
         }
 
         GameObject.Find("Main Camera").transform.position = cameraSpawns[index].transform.position;

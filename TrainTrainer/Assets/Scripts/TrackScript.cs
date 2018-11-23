@@ -17,7 +17,7 @@ public class TrackScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (timeTillTrainMoves <= 0)
+        if (timeTillTrainMoves <= 0 && !UIScript.gameOver)
         {
             if (GetComponentInChildren<TrainMovement>().travelPathA)
             {
@@ -39,7 +39,6 @@ public class TrackScript : MonoBehaviour {
         else
         {
             timeTillTrainMoves -= Time.deltaTime;
-            Debug.Log("Train comes in: " + timeTillTrainMoves);
         }
 	}
 

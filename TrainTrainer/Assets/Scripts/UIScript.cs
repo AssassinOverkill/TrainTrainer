@@ -7,21 +7,26 @@ public class UIScript : MonoBehaviour {
     #region variables
     public static bool centerScreenActive = false;
     public static bool gameOver = false;    //  did the player fail to stop a train?
+    public static int numberOfSafeTrains = 0; //  how many trains safely made it by
 
     #endregion
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
         if (gameOver)
         {
             centerScreenActive = true;
-            this.transform.GetChild(0).GetComponent<Text>().text = "You Failed!";
+            this.transform.GetChild(0).GetComponent<Text>().text = "You Failed! \n Press R to restart!";
             this.transform.GetChild(0).GetComponent<Text>().color = Color.red;
+        }
+        else
+        {
+            this.transform.GetChild(1).GetComponent<Text>().text = "Score: " + numberOfSafeTrains;
+
+            if (!centerScreenActive)
+            {
+                this.transform.GetChild(0).GetComponent<Text>().text = "";
+            }
         }
 	}
 }
