@@ -18,10 +18,10 @@ public class LevelScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
             if(index < cameraSpawns.Count - 1) { index++; }           
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             if (index > 0) { index--; }
         }
 
