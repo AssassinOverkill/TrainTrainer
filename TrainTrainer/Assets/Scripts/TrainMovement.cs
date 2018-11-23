@@ -10,6 +10,7 @@ public class TrainMovement : MonoBehaviour {
     public List<GameObject> nodes = new List<GameObject>(); //  path A will be even numbers, path B will be odd numbers (excluding 1)
     public float speed;
     public bool travelPathA = false;    //  true means the train will go down path A. false, path B
+    public int trackNum;
 
     private int nodeIndex = 0;  //  index of the next node the train will travel towards
     #endregion
@@ -28,22 +29,26 @@ public class TrainMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+         trackNum = GameObject.Find("World").GetComponent<ArduinoInputManager>().input;
+
         if (!UIScript.gameOver && GetComponentInParent<TrackScript>().timeTillTrainMoves <= 0f)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, nodes[nodeIndex].transform.position, Time.deltaTime * speed);
             this.transform.LookAt(nodes[nodeIndex].transform);
             Debug.Log("Current Node Index: " + nodeIndex);
 
-            if (Input.GetKeyDown(KeyCode.E) && nodeIndex == 0 && LevelScript.index == GetComponentInParent<TrackScript>().trackID)
+            if (nodeIndex == 0 && LevelScript.index == GetComponentInParent<TrackScript>().trackID)
             {
-                Debug.Log("Track switched!");
-                if (travelPathA)
+                
+                if (trackNum == 12 && travelPathA)
                 {
                     travelPathA = false;
+                    Debug.Log("Track switched!");
                 }
-                else
+                else if (trackNum == 13 && travelPathA)
                 {
                     travelPathA = true;
+                    Debug.Log("Track switched!");
                 }
             }
         }
