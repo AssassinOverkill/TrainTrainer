@@ -22,6 +22,7 @@ public class UIScript : MonoBehaviour {
         else
         {
             this.transform.GetChild(1).GetComponent<Text>().text = "Score: " + numberOfSafeTrains;
+            this.transform.GetChild(2).GetComponent<Text>().text = "Track #" + (LevelScript.index + 1);
 
             if (!centerScreenActive)
             {
